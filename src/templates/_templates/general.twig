@@ -34,15 +34,68 @@
 		{% namespace 'settings' %}
 			{{ forms.textField({
 			    first: true,
-			    label: "Plugin Name",
+			    label: "Plugin Name"|t('craft-watchtower'),
 			    name: 'pluginName',
 			    value: settings.pluginName,
 			    required: true,
 			    errors: (settings is defined ? settings.getErrors('pluginName') : null),
 			}) }}
 
-			{# <hr> #}
+			<hr>
 
+			{{ forms.textField({
+			    first: true,
+			    label: "Queue Pileup Limit"|t('craft-watchtower'),
+			    instructions: "Limit the number of pending queues on you want to get notified."|t('craft-watchtower'),
+			    name: 'pileUpQueueLimit',
+			    value: settings.pileUpQueueLimit,
+			    size: 3,
+			    inputmode: 'numeric',
+			    required: true,
+			    errors: (settings is defined ? settings.getErrors('pileUpQueueLimit') : null),
+			}) }}
+
+			{{ forms.textField({
+			    first: true,
+			    label: "Queue Pileup Limit"|t('craft-watchtower'),
+			    instructions: "Limit the number of failed queues on you want to get notified."|t('craft-watchtower'),
+			    name: 'failedQueueLimit',
+			    value: settings.failedQueueLimit,
+			    size: 3,
+			    inputmode: 'numeric',
+			    required: true,
+			    errors: (settings is defined ? settings.getErrors('failedQueueLimit') : null),
+			}) }}
+
+			{{ forms.lightswitchField({
+                label: 'Ignore Repeated'|t('craft-watchtower'),
+			    instructions: "dont include such queues in calculation which are same queue multiple time. (e.g., Updating search indexes)"|t('craft-watchtower'),
+                id: 'ignoreRepeated',
+                name: 'ignoreRepeated',
+                on: settings.ignoreRepeated,
+                onLabel: "Yes",
+                offLabel: "No"
+            }) }}
+
+			{{ forms.textField({
+			    first: true,
+			    label: "Email Addresses"|t('craft-watchtower'),
+			    instructions: "Comma seperated emails where we will notify uncommon queue behaviour"|t('craft-watchtower'),
+			    name: 'emails',
+			    value: settings.emails,
+			    required: true,
+			    errors: (settings is defined ? settings.getErrors('emails') : null),
+			}) }}
+
+			{{ forms.textField({
+			    first: true,
+			    label: "Oh Dear ping URL"|t('craft-watchtower'),
+			    instructions: "Generate a ping with <a href='https://ohdear.app/' target='_blank'>Oh Dear</a> ?"|t('craft-watchtower'),
+			    name: 'ohDearPingUrl',
+			    value: settings.ohDearPingUrl,
+			    required: true,
+			    errors: (settings is defined ? settings.getErrors('ohDearPingUrl') : null),
+			}) }}
 		{% endnamespace %}
 
 		<button class="btn submit" type="submit">{{ 'Save'|t('craft-watchtower') }}</button>

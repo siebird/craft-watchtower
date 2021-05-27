@@ -8,7 +8,12 @@ use craft\elements\Category;
 class Settings extends Model
 {
 
-    public $pluginName 	      = 'Watch Tower';
+    public $pluginName = 'Watch Tower';
+    public $pileUpQueueLimit = '50';
+    public $failedQueueLimit = '5';
+    public $ignoreRepeated = true;
+    public $emails = "";
+    public $ohDearPingUrl = "";
 
     public function getSettingsNavItems()
     {
@@ -30,7 +35,8 @@ class Settings extends Model
     public function rules()
     {
         return [
-            [['pluginName'], 'required'],
+            [['pluginName', 'pileUpQueueLimit', 'failedQueueLimit', 'emails'], 'required'],
+            $rules[] = [['pileUpQueueLimit'], 'number', 'integerOnly' => true]
         ];
     }
 
