@@ -20,11 +20,11 @@ class Settings extends Model
 
         $ret =  [
             'local' => [
-                'label' => Craft::t('craft-watchtower', 'General Settings'),
-                'url' => 'craft-watchtower',
-                'action' => 'craft-watchtower/settings/save-general-settings',
+                'label' => Craft::t('watchtower', 'General Settings'),
+                'url' => 'watchtower',
+                'action' => 'watchtower/settings/save-general-settings',
                 'selected' => 'local',
-                'template' => 'craft-watchtower/_templates/general'
+                'template' => 'watchtower/_templates/general'
             ],
         ];
 

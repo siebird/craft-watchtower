@@ -56,7 +56,7 @@ class SettingsController extends BaseController
         if ($settings->hasErrors())
         {
 
-            Craft::$app->getSession()->setError(Craft::t('craft-watchtower', 'Couldn’t save settings.'));
+            Craft::$app->getSession()->setError(Craft::t('watchtower', 'Couldn’t save settings.'));
             Craft::$app->getUrlManager()->setRouteParams([
                 'settings' => $settings
             ]);
@@ -66,7 +66,7 @@ class SettingsController extends BaseController
         }
 
         Craft::$app->getPlugins()->savePluginSettings($this->plugin::getInstance(), $postSettings);
-        Craft::$app->getSession()->setNotice(Craft::t('craft-watchtower', 'Settings saved.'));
+        Craft::$app->getSession()->setNotice(Craft::t('watchtower', 'Settings saved.'));
 
         return $this->redirectToPostedUrl();
 

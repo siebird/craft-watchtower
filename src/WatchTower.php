@@ -4,6 +4,7 @@ namespace siebird\WatchTower;
 use Craft;
 use yii\base\Event;
 use craft\base\Plugin;
+use craft\console\Application as ConsoleApplication;
 use craft\commerce\elements\Order;
 use craft\events\RegisterUrlRulesEvent;
 use craft\helpers\UrlHelper;
@@ -24,7 +25,7 @@ class WatchTower extends Plugin
 	public static $plugin;
 	public $hasCpSection 		= true;
 	public $hasCpSettings 		= true;
-    public static $pluginHandle = 'craft-watchtower';
+    public static $pluginHandle = 'watchtower';
 	public $schemaVersion 		= '1.0.0';
 
 	public function init()
@@ -32,6 +33,11 @@ class WatchTower extends Plugin
 	    parent::init();
 	    self::$plugin = $this;
 	    self::$app = new App();
+
+	    // Add in our console commands
+	    // if (Craft::$app instanceof ConsoleApplication) {
+	    // 	$this->controllerNamespace = 'siebird\WatchTower\console\controllers';
+	    // }
 
 	    $this->_registerCpRoutes();
 	    $this->_setPluginComponents();
@@ -42,8 +48,8 @@ class WatchTower extends Plugin
     {
         Event::on(UrlManager::class, UrlManager::EVENT_REGISTER_CP_URL_RULES, function(RegisterUrlRulesEvent $event) {
             $event->rules = array_merge($event->rules, [
-                'craft-watchtower' 				=> 'craft-watchtower/settings/general',
-    			'craft-watchtower/settings' 	=> 'craft-watchtower/settings/general',
+                'watchtower' 			=> 'watchtower/settings/general',
+    			'watchtower/settings' 	=> 'watchtower/settings/general',
             ]);
         });
     }
@@ -58,7 +64,7 @@ class WatchTower extends Plugin
 
 	    $parent = parent::getCpNavItem();
 	    $parent['label'] = $this->getSettings()->pluginName;
-        $parent['url'] = 'craft-watchtower';
+        $parent['url'] = 'watchtower';
 
 	    if($parent['label'] == "")
 	    {
@@ -82,7 +88,7 @@ class WatchTower extends Plugin
 
 	public function getSettingsResponse()
     {
-        Craft::$app->getResponse()->redirect(UrlHelper::cpUrl('craft-watchtower/settings'));
+        Craft::$app->getResponse()->redirect(UrlHelper::cpUrl('watchtower/settings'));
     }
 
 	protected function afterInstall()

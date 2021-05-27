@@ -1,19 +1,19 @@
 {% extends "_layouts/cp" %}
 {% if meta.title is defined %}
-	{% set title  = meta.title|t('craft-watchtower') %}
+	{% set title  = meta.title|t('watchtower') %}
 {% endif %}
 {% set bodyClass = craft.app.request.getSegments()|slice(0, 3)|join(' ') %}
 
 {% block actionButton %}
 	{% if meta.type is defined and meta.type == "form" %}
 	<div class="buttons">
-	    <input class="btn submit" type="submit" value="{{ 'Save'|t('craft-watchtower') }}">
+	    <input class="btn submit" type="submit" value="{{ 'Save'|t('watchtower') }}">
 	</div>
 	{% endif %}
 {% endblock %}
 
 {% set sidebar %}
-    {% if navigation|default([])|length %}
+    {% if navigation|default([])|length > 1 %}
 	<nav>
 	    <ul>
             {% for item in navigation %}

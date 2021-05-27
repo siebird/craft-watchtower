@@ -1,6 +1,6 @@
-{% extends 'craft-watchtower/_layouts/base' %}
+{% extends 'watchtower/_layouts/base' %}
 {% set selectedSubnavItem = 'settings' %}
-{% set title  = "General Settings"|t('craft-watchtower') %}
+{% set title  = "General Settings"|t('watchtower') %}
 {% set fullPageForm = true %}
 
 {% macro errorList(errors) %}
@@ -21,7 +21,7 @@
 	<div id="settings-cp">
 		{% if errors is defined and errors|length %}
 		    <div class="pane">
-		        <h3>{{ "Something went wrong!"|t('craft-watchtower') }}</h3>
+		        <h3>{{ "Something went wrong!"|t('watchtower') }}</h3>
 		        {{ errorList(errors) }}
 		    </div>
 		    <br>
@@ -29,12 +29,12 @@
 
 	    {{ csrfInput() }}
 	    <input type="hidden" name="action" value="{{ meta.action }}">
-	    {{ redirectInput("craft-watchtower/settings") }}
+	    {{ redirectInput("watchtower/settings") }}
 
 		{% namespace 'settings' %}
 			{{ forms.textField({
 			    first: true,
-			    label: "Plugin Name"|t('craft-watchtower'),
+			    label: "Plugin Name"|t('watchtower'),
 			    name: 'pluginName',
 			    value: settings.pluginName,
 			    required: true,
@@ -45,8 +45,8 @@
 
 			{{ forms.textField({
 			    first: true,
-			    label: "Queue Pileup Limit"|t('craft-watchtower'),
-			    instructions: "Limit the number of pending queues on you want to get notified."|t('craft-watchtower'),
+			    label: "Queue Pileup Limit"|t('watchtower'),
+			    instructions: "Limit the number of pending queues on you want to get notified."|t('watchtower'),
 			    name: 'pileUpQueueLimit',
 			    value: settings.pileUpQueueLimit,
 			    size: 3,
@@ -57,8 +57,8 @@
 
 			{{ forms.textField({
 			    first: true,
-			    label: "Queue Pileup Limit"|t('craft-watchtower'),
-			    instructions: "Limit the number of failed queues on you want to get notified."|t('craft-watchtower'),
+			    label: "Queue Pileup Limit"|t('watchtower'),
+			    instructions: "Limit the number of failed queues on you want to get notified."|t('watchtower'),
 			    name: 'failedQueueLimit',
 			    value: settings.failedQueueLimit,
 			    size: 3,
@@ -68,8 +68,8 @@
 			}) }}
 
 			{{ forms.lightswitchField({
-                label: 'Ignore Repeated'|t('craft-watchtower'),
-			    instructions: "dont include such queues in calculation which are same queue multiple time. (e.g., Updating search indexes)"|t('craft-watchtower'),
+                label: 'Ignore Repeated'|t('watchtower'),
+			    instructions: "dont include such queues in calculation which are same queue multiple time. (e.g., Updating search indexes)"|t('watchtower'),
                 id: 'ignoreRepeated',
                 name: 'ignoreRepeated',
                 on: settings.ignoreRepeated,
@@ -79,8 +79,8 @@
 
 			{{ forms.textField({
 			    first: true,
-			    label: "Email Addresses"|t('craft-watchtower'),
-			    instructions: "Comma seperated emails where we will notify uncommon queue behaviour"|t('craft-watchtower'),
+			    label: "Email Addresses"|t('watchtower'),
+			    instructions: "Comma seperated emails where we will notify uncommon queue behaviour"|t('watchtower'),
 			    name: 'emails',
 			    value: settings.emails,
 			    required: true,
@@ -89,15 +89,15 @@
 
 			{{ forms.textField({
 			    first: true,
-			    label: "Oh Dear ping URL"|t('craft-watchtower'),
-			    instructions: "Generate a ping with <a href='https://ohdear.app/' target='_blank'>Oh Dear</a> ?"|t('craft-watchtower'),
+			    label: "Oh Dear ping URL"|t('watchtower'),
+			    instructions: "Generate a ping with <a href='https://ohdear.app/' target='_blank'>Oh Dear</a> ?"|t('watchtower'),
 			    name: 'ohDearPingUrl',
 			    value: settings.ohDearPingUrl,
-			    required: true,
+			    required: false,
 			    errors: (settings is defined ? settings.getErrors('ohDearPingUrl') : null),
 			}) }}
 		{% endnamespace %}
 
-		<button class="btn submit" type="submit">{{ 'Save'|t('craft-watchtower') }}</button>
+		<button class="btn submit" type="submit">{{ 'Save'|t('watchtower') }}</button>
     </div>
 {% endblock %}
