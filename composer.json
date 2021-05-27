@@ -1,0 +1,38 @@
+{
+	"name": "siebird/craft-watchtower",
+	"description": "Watch on queues to make sure it not pile up.",
+	"version": "1.0.0",
+	"type": "craft-plugin",
+	"keywords": ["craft", "cms", "craftcms", "craft-plugin", "siebird", "queue", "craft-queue"],
+	"license": "proprietary",
+	"authors": [
+		{
+			"name": "Siebird",
+			"homepage": "https://www.siebird.com/"
+		}
+	],
+	"support": {
+		"email": "austin@siebird.com",
+		"issues": "https://github.com/siebird/craft-watchtower/issues?state=open",
+		"source": "https://github.com/siebird/craft-watchtower",
+		"docs": "https://github.com/siebird/craft-watchtower"
+	},
+	"require": {
+		"craftcms/cms": "^3.3.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"siebird\\WatchTower\\": "src/"
+		}
+	},
+	"extra": {
+		"handle": "craft-watchtower",
+		"name": "Watch Tower",
+		"developer": "Siebird",
+		"developerUrl": "https://www.siebird.com/",
+		"documentationUrl": "https://github.com/siebird/craft-watchtower/blob/master/README.md",
+		"changelogUrl": "https://github.com/siebird/craft-watchtower/blob/master/CHANGELOG.md",
+		"downloadUrl": "https://github.com/siebird/craft-watchtower/archive/refs/heads/master.zip",
+		"class": "siebird\\WatchTower\\WatchTower"
+	}
+}
