@@ -31,21 +31,22 @@ class Monitor
 
 		if($variables['totalPileups'] >= $settings['pileUpQueueLimit'] || $variables['totalFailed'] >= $settings['failedQueueLimit'])
 		{
-			$status = "Risky ";
+			$status = "Count ";
 			$mailSent = WatchTower::$plugin->email->send($variables, $settings);
+		}
 
-			if (! empty($settings['ohDearPingUrl'])) {
-				@file_get_contents($settings['ohDearPingUrl']);
-			}
+		// If ping url, always ping Oh dear on each command
+		if (! empty($settings['ohDearPingUrl'])) {
+			@file_get_contents($settings['ohDearPingUrl']);
 		}
 
 		if (Craft::$app instanceof ConsoleApplication) {
 			echo "——————————————————————————————\n";
-			echo "|  Status          | " . $status . "  |\n";
+			echo "|  Queue         | " . $status . "  |\n";
 			echo "——————————————————————————————\n";
-			echo "|  Total Piled up  | " . "   " . $variables['totalPileups'] . "    |\n";
+			echo "|  Pending Jobs  | " . "   " . $variables['totalPileups'] . "    |\n";
 			echo "——————————————————————————————\n";
-			echo "|  Total Failed    | " . "   " . $variables['totalFailed'] . "    |\n";
+			echo "|  Failed Jobs    | " . "   " . $variables['totalFailed'] . "    |\n";
 			echo "——————————————————————————————\n";
 		} else {
 			echo "———————————————<br>";
