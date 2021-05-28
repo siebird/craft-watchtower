@@ -32,7 +32,7 @@ class Email
 
         $site = Craft::$app->getSites()->getCurrentSite();
         $siteName = Craft::t('site', $site->getName());
-        $subject = "Uncommon queue activity : " . $siteName;
+        $subject = "Watchtower Queue Bottleneck at " . $siteName;
         $to = explode(',', $settings['emails']);
         foreach ($to as $key => &$value) {
             $value = trim($value);

@@ -18,14 +18,14 @@ We got few runtime variable here.
 <!DOCTYPE html>
 <html>
 <head>
-	<title>WatchTower Notification</title>
+	<title>Watchtower Notification</title>
 </head>
 <body>
-	<p>Greetings from <strong>{{ siteName }}</strong>.</p>
-	<p>We have found some unusual activity on this site.</p>
+	<h1>Wathtower Alert!</h1>
+    <p><strong>{{ siteName }}</strong> seems to a bottleneck in the queue manager:</p>
 	<ul>
-		<li>Pileup Queues: <strong>{{ totalPileups }}</strong></li>
-		<li>Failed Queues: <strong>{{ totalFailed }}</strong></li>
+		<li>Pending Jobs: <strong>{{ totalPileups }}</strong></li>
+		<li>Faild Jobs: <strong>{{ totalFailed }}</strong></li>
 	</ul>
 </body>
 </html>

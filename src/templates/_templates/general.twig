@@ -46,7 +46,7 @@
 			{{ forms.textField({
 			    first: true,
 			    label: "Queue Pileup Limit"|t('watchtower'),
-			    instructions: "Limit the number of pending queues on you want to get notified."|t('watchtower'),
+			    instructions: "Set the number of pending jobs in the queue to get notified about."|t('watchtower'),
 			    name: 'pileUpQueueLimit',
 			    value: settings.pileUpQueueLimit,
 			    size: 3,
@@ -58,7 +58,7 @@
 			{{ forms.textField({
 			    first: true,
 			    label: "Queue Failed Limit"|t('watchtower'),
-			    instructions: "Limit the number of failed queues on you want to get notified."|t('watchtower'),
+			    instructions: "Set the number of failed jobs in the queue to get notified about."|t('watchtower'),
 			    name: 'failedQueueLimit',
 			    value: settings.failedQueueLimit,
 			    size: 3,
@@ -69,7 +69,7 @@
 
 			{{ forms.lightswitchField({
                 label: 'Ignore Repeated'|t('watchtower'),
-			    instructions: "dont include such queues in calculation which are same queue multiple time. (e.g., Updating search indexes)"|t('watchtower'),
+			    instructions: "Ignore repeated jobs in the queue (e.g., Updating search indexes)"|t('watchtower'),
                 id: 'ignoreRepeated',
                 name: 'ignoreRepeated',
                 on: settings.ignoreRepeated,
@@ -80,7 +80,7 @@
 			{{ forms.textField({
 			    first: true,
 			    label: "Email Addresses"|t('watchtower'),
-			    instructions: "Comma seperated emails where we will notify uncommon queue behaviour"|t('watchtower'),
+			    instructions: "Comma seperated list of email recipients to get notification emails"|t('watchtower'),
 			    name: 'emails',
 			    value: settings.emails,
 			    required: true,
@@ -102,7 +102,7 @@
 			{{ forms.textField({
 			    first: true,
 			    label: "Oh Dear ping URL"|t('watchtower'),
-			    instructions: "Generate a ping with <a href='https://ohdear.app/' target='_blank'>Oh Dear</a> ?"|t('watchtower'),
+			    instructions: "Set a ping url for <a href='https://ohdear.app/' target='_blank'>Oh Dear</a> scheduled task monitoring"|t('watchtower'),
 			    name: 'ohDearPingUrl',
 			    value: settings.ohDearPingUrl,
 			    required: false,

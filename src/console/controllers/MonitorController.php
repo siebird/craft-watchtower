@@ -11,7 +11,7 @@ use yii\helpers\Console;
 class MonitorController extends Controller
 {
     /**
-     * Command to monitor current queues and fire email if uncommon activity happend like failed queues or pileup lots of queues.
+     * Command to monitor current jobs in queue and fire email if a backlog of pending or failed jobs in queue.
      * ./craft siebird/monitor
      */
     public function actionIndex()
