@@ -33,10 +33,15 @@ class Email
         $site = Craft::$app->getSites()->getCurrentSite();
         $siteName = Craft::t('site', $site->getName());
         $subject = "Uncommon queue activity : " . $siteName;
+        $to = explode(',', $settings['emails']);
+        foreach ($to as $key => &$value) {
+            $value = trim($value);
+        }
+
         $mailer = Craft::$app
            ->getMailer()
            ->compose()
-           ->setTo($settings['emails'])
+           ->setTo($to)
            ->setFrom(($fromEmail != "" ? ([$fromEmail => $fromEmail]): $fromEmail))
            ->setSubject($subject);
 

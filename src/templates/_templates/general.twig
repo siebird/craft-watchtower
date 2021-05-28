@@ -93,7 +93,7 @@
 			    id: 'overrideEmailTemplate',
 			    name: 'overrideEmailTemplate',
 			    suggestions: craft.cp.getTemplateSuggestions(),
-			    required: true,
+			    required: false,
 			    value: settings.overrideEmailTemplate,
 			    errors: (settings is defined ? settings.getErrors('overrideEmailTemplate') : null),
 			}) }}
