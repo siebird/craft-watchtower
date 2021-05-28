@@ -17,7 +17,7 @@ cd /path/to/project
 Run this command to load the plugin:
 
 ```bash
-composer require siebird/craft-watchtower/
+composer require siebird/craft-watchtower
 ```
 
 In the Control Panel, go to Settings → Plugins and click the “Install” button for "Watchtower".
