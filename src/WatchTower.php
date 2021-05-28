@@ -71,7 +71,7 @@ class WatchTower extends Plugin
 
 	    if($parent['label'] == "")
 	    {
-	    	$parent['label'] = "Watch Tower";
+	    	$parent['label'] = "Watchtower";
 	    }
 
 		return $parent;
