@@ -72,4 +72,10 @@ class SettingsController extends BaseController
 
     }
 
+
+    public function actionTest()
+    {
+        WatchTower::$plugin->monitor->fetchInfo();
+    }
+
 }

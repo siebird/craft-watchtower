@@ -57,7 +57,7 @@
 
 			{{ forms.textField({
 			    first: true,
-			    label: "Queue Pileup Limit"|t('watchtower'),
+			    label: "Queue Failed Limit"|t('watchtower'),
 			    instructions: "Limit the number of failed queues on you want to get notified."|t('watchtower'),
 			    name: 'failedQueueLimit',
 			    value: settings.failedQueueLimit,
@@ -87,6 +87,18 @@
 			    errors: (settings is defined ? settings.getErrors('emails') : null),
 			}) }}
 
+			{{ forms.autosuggestField({
+			    label: "Override Email Template"|t('watchtower'),
+			    instructions: "If you wish to trigger your own custom email template, You can select that template here.(Default email template in plugin's templates folder can be a good example to start with.)"|t('watchtower'),
+			    id: 'overrideEmailTemplate',
+			    name: 'overrideEmailTemplate',
+			    suggestions: craft.cp.getTemplateSuggestions(),
+			    required: true,
+			    value: settings.overrideEmailTemplate,
+			    errors: (settings is defined ? settings.getErrors('overrideEmailTemplate') : null),
+			}) }}
+
+			<hr>
 			{{ forms.textField({
 			    first: true,
 			    label: "Oh Dear ping URL"|t('watchtower'),

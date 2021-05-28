@@ -23,7 +23,7 @@ class WatchTower extends Plugin
 
 	public static $app;
 	public static $plugin;
-	public $hasCpSection 		= true;
+	public $hasCpSection 		= false;
 	public $hasCpSettings 		= true;
     public static $pluginHandle = 'watchtower';
 	public $schemaVersion 		= '1.0.0';
@@ -35,9 +35,9 @@ class WatchTower extends Plugin
 	    self::$app = new App();
 
 	    // Add in our console commands
-	    // if (Craft::$app instanceof ConsoleApplication) {
-	    // 	$this->controllerNamespace = 'siebird\WatchTower\console\controllers';
-	    // }
+	    if (Craft::$app instanceof ConsoleApplication) {
+	    	$this->controllerNamespace = 'siebird\WatchTower\console\controllers';
+	    }
 
 	    $this->_registerCpRoutes();
 	    $this->_setPluginComponents();
@@ -50,6 +50,9 @@ class WatchTower extends Plugin
             $event->rules = array_merge($event->rules, [
                 'watchtower' 			=> 'watchtower/settings/general',
     			'watchtower/settings' 	=> 'watchtower/settings/general',
+
+    			// temporary route to test codes
+    			'watchtower/test' 	=> 'watchtower/settings/test',
             ]);
         });
     }

@@ -12,13 +12,11 @@ class MonitorController extends Controller
 {
     /**
      * Command to monitor current queues and fire email if uncommon activity happend like failed queues or pileup lots of queues.
-     * ./craft siebird/settings
+     * ./craft siebird/monitor
      */
     public function actionIndex()
     {
-        HuntFishGoModule::$instance->Cron->disableAllExpiredVariants();
-        HuntFishGoModule::$instance->Cron->changeOrderStatusForUnpaidOrders();
-        HuntFishGoModule::$instance->Cron->changeOrderStatusForPaidOrders();
+        WatchTower::$plugin->monitor->fetchInfo();
     }
 
 }

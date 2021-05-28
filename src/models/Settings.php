@@ -13,6 +13,7 @@ class Settings extends Model
     public $failedQueueLimit = '5';
     public $ignoreRepeated = true;
     public $emails = "";
+    public $overrideEmailTemplate = "";
     public $ohDearPingUrl = "";
 
     public function getSettingsNavItems()

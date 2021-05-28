@@ -1,0 +1,31 @@
+{#
+This is Default Email template to send notification regarding QUEUE monitor data to user.
+We got few runtime variable here.
+	# Result Variables
+    totalPileups
+    totalFailed
+
+    # Settings variables (setting you have passed in control panel)
+    settings.pluginName
+    settings.pileUpQueueLimit
+    settings.failedQueueLimit
+    settings.ignoreRepeated
+    settings.emails
+    settings.overrideEmailTemplate
+    settings.ohDearPingUrl
+#}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WatchTower Notification</title>
+</head>
+<body>
+	<p>Greetings from <strong>{{ siteName }}</strong>.</p>
+	<p>We have found some unusual activity on this site.</p>
+	<ul>
+		<li>Pileup Queues: <strong>{{ totalPileups }}</strong></li>
+		<li>Failed Queues: <strong>{{ totalFailed }}</strong></li>
+	</ul>
+</body>
+</html>
