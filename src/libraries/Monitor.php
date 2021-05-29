@@ -42,20 +42,20 @@ class Monitor
 
 		if (Craft::$app instanceof ConsoleApplication) {
 			echo "——————————————————————————————\n";
-			echo "|  Queue         | " . $status . "  |\n";
+			echo "|  Queue          |  " . $status . "  |\n";
 			echo "——————————————————————————————\n";
-			echo "|  Pending Jobs  | " . "   " . $variables['totalPileups'] . "    |\n";
+			echo "|  Pending Jobs   | " . "   " . $variables['totalPileups'] . ($variables['totalPileups'] <= 999 ? ' ' : '') . ($variables['totalPileups'] <= 99 ? ' ' : '') . ($variables['totalPileups'] <= 9 ? ' ' : '') . "  |\n";
 			echo "——————————————————————————————\n";
-			echo "|  Failed Jobs    | " . "   " . $variables['totalFailed'] . "    |\n";
+			echo "|  Failed Jobs    | " . "   " . $variables['totalFailed'] . ($variables['totalFailed'] <= 999 ? ' ' : '') . ($variables['totalFailed'] <= 99 ? ' ' : '') . ($variables['totalFailed'] <= 9 ? ' ' : '') . "  |\n";
 			echo "——————————————————————————————\n";
 		} else {
-			echo "———————————————<br>";
-			echo "| &nbsp;&nbsp;&nbsp;&nbsp;Status &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | " . " &nbsp;&nbsp;&nbsp;" . ($status != 'Normal' ? '&nbsp;&nbsp;' : '') . $status . "&nbsp;&nbsp;&nbsp; |<br>";
-			echo "———————————————<br>";
-			echo "| &nbsp;&nbsp;&nbsp;&nbsp;Total Piled up &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | " . " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" . $variables['totalPileups'] . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<br>";
-			echo "———————————————<br>";
-			echo "| &nbsp;&nbsp;&nbsp;&nbsp;Total Failed &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | " . " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" . $variables['totalFailed'] . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<br>";
-			echo "———————————————<br>";
+			echo "————————————————<br>";
+			echo "| &nbsp;&nbsp;&nbsp;&nbsp;Status &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | " . " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" . ($status != 'Normal' ? '&nbsp;' : '') . trim($status) . ($status != 'Normal' ? '&nbsp;&nbsp;' : '') . "&nbsp;&nbsp;&nbsp;&nbsp; |<br>";
+			echo "————————————————<br>";
+			echo "| &nbsp;&nbsp;&nbsp;&nbsp;Pending Jobs &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | " . " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" . $variables['totalPileups'] . ($variables['totalPileups'] <= 999 ? '&nbsp;&nbsp;' : '') . ($variables['totalPileups'] <= 99 ? '&nbsp;&nbsp;' : '') . ($variables['totalPileups'] <= 9 ? '&nbsp;&nbsp;' : '') . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<br>";
+			echo "————————————————<br>";
+			echo "| &nbsp;&nbsp;&nbsp;&nbsp;Failed Jobs &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | " . " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" . $variables['totalFailed'] . ($variables['totalFailed'] <= 999 ? '&nbsp;&nbsp;' : '') . ($variables['totalFailed'] <= 99 ? '&nbsp;&nbsp;' : '') . ($variables['totalFailed'] <= 9 ? '&nbsp;&nbsp;' : '') . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<br>";
+			echo "————————————————<br>";
 		}
 
 		exit();
@@ -90,6 +90,7 @@ class Monitor
 	private function _createJobQuery(): Query
     {
         return (new Query())
+			->select('job')
             ->from($this->tableName)
             ->where(['channel' => $this->channel]);
     }
