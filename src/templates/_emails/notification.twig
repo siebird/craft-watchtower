@@ -27,5 +27,12 @@ We got few runtime variable here.
 		<li>Pending Jobs: <strong>{{ totalPileups }}</strong></li>
 		<li>Faild Jobs: <strong>{{ totalFailed }}</strong></li>
 	</ul>
+    <p>
+        <a href='{{ cpUrl("utilities/queue-manager") }}'>Click here to go to backend.</a>
+    </p>
+    <p>
+        Regards, <br>
+        Back office, {{ siteName }}
+    </p>
 </body>
 </html>
