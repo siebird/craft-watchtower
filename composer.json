@@ -1,7 +1,7 @@
 {
 	"name": "siebird/craft-watchtower",
 	"description": "Watch on queues to make sure it not pile up.",
-	"version": "1.0.2",
+	"version": "1.0.2.1",
 	"type": "craft-plugin",
 	"keywords": ["craft", "cms", "craftcms", "craft-plugin", "siebird", "queue", "craft-queue"],
 	"license": "proprietary",
