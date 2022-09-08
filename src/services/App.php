@@ -7,7 +7,7 @@ class App extends Component
 {
 	public $settings;
 
-	public function init()
+	public function init(): void
     {
         $this->settings = new Settings();
     }

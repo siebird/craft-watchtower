@@ -15,11 +15,11 @@ class SettingsController extends BaseController
     public $settingsNav;
     public $selectedNav;
 
-    protected $allowAnonymous = [
+    protected array|int|bool $allowAnonymous = [
         // 'check-area' => self::ALLOW_ANONYMOUS_LIVE
     ];
 
-	public function init()
+	public function init(): void
     {
         parent::init();
         $this->plugin = WatchTower::$plugin;
@@ -27,7 +27,7 @@ class SettingsController extends BaseController
         $this->selectedNav = Craft::$app->getRequest()->getSegment(2);
     }
 
-    public function actionGeneral()
+    public function actionGeneral(): void
     {
         $meta          = array();
         $navigation    = $this->settingsNav;
@@ -73,7 +73,7 @@ class SettingsController extends BaseController
     }
 
 
-    public function actionTest()
+    public function actionTest(): void
     {
         WatchTower::$plugin->monitor->fetchInfo();
     }
