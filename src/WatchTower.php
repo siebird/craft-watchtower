@@ -91,7 +91,7 @@ class WatchTower extends Plugin
 
 	public function getSettingsResponse(): mixed
     {
-        Craft::$app->getResponse()->redirect(UrlHelper::cpUrl('watchtower/settings'));
+        return Craft::$app->getResponse()->redirect(UrlHelper::cpUrl('watchtower/settings'));
     }
 
 	protected function afterInstall(): void
