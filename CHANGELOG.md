@@ -1,5 +1,9 @@
 # Changelog
 
+## 4.0.0 - 2022-09-08
+- Upgraded plugin for craft cms v4.
+- Solved PHP 8.1 issues.
+
 ## 1.0.2.1 - 2022-05-13
 - Email notification message typo mistake.
 

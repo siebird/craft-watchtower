@@ -1,11 +1,10 @@
-# Queue watcher plugin for Craft CMS 3
+# Queue watcher plugin for Craft CMS 4
 
-Watchtower plugin monitors the queue log for bottlenecks and send notifications emails once those thresholds are met. It also has the ability to ping Oh Dear for cron job monitoring.  
+Watchtower plugin monitors the queue log for bottlenecks and send notifications emails once those thresholds are met. It also has the ability to ping Oh Dear for cron job monitoring.
 
 ### Requirements
- * PHP version 7.1 or higher
- * Craft CMS 3.3 or higher
- * Craft Commerce 3.1.0 or higher
+ * PHP version 8.0.2 or higher
+ * Craft CMS 4.0 or higher
 
 ---
 ### Installation
