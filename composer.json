@@ -1,9 +1,9 @@
 {
 	"name": "siebird/craft-watchtower",
-	"description": "Watch on queues to make sure it not pile up.",
+	"description": "Monitors the Craft queue manager for bottlenecks and send notifications emails",
 	"version": "4.0.1",
 	"type": "craft-plugin",
-	"keywords": ["craft", "cms", "craftcms", "craft-plugin", "siebird", "queue", "craft-queue", "queue-manager", "cron job", "monitoring"],
+	"keywords": ["craft", "cms", "craftcms", "craft-plugin", "siebird", "queue", "craft-queue", "queue-manager", "cron-job", "monitoring", "oh-dear", "ohdear"],
 	"license": "proprietary",
 	"authors": [
 		{
