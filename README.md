@@ -1,6 +1,6 @@
 # Queue watcher plugin for Craft CMS 4
 
-Watchtower plugin monitors the queue log for bottlenecks and send notifications emails once those thresholds are met. It also has the ability to ping Oh Dear for cron job monitoring.
+Watchtower plugin monitors the queue log for bottlenecks and send notifications emails once those thresholds are met. It also has the ability to ping [Oh Dear](https://ohdear.app/) for cron job monitoring. 
 
 ### Requirements
  * PHP version 8.0.2 or higher
@@ -8,15 +8,13 @@ Watchtower plugin monitors the queue log for bottlenecks and send notifications 
 
 ---
 ### Installation
-Open your terminal and go to your Craft project:
+To install this plugin, copy the command above to your terminal:
 
 ```bash
-cd /path/to/project
-```
-Run this command to load the plugin:
-
-```bash
-composer require siebird/craft-watchtower
+composer require siebird/craft-watchtower -w && php craft plugin/install watchtower
 ```
 
-In the Control Panel, go to Settings → Plugins and click the “Install” button for "Watchtower".
+In the control panel, go to settings, find Watchtower and click to configure.
+
+## Custom Email Template
+Review the default email template ('./src/templates/_emails/notification`) as a starting point. Enter the updated path in the custom email template field relative to Craft's `./templates` folder.

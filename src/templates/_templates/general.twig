@@ -46,7 +46,7 @@
 			{{ forms.textField({
 			    first: true,
 			    label: "Queue Pileup Limit"|t('watchtower'),
-			    instructions: "Set the number of pending jobs in the queue to get notified about."|t('watchtower'),
+			    instructions: "Set the threshold number for pending jobs in the queue to get sent a notification email."|t('watchtower'),
 			    name: 'pileUpQueueLimit',
 			    value: settings.pileUpQueueLimit,
 			    size: 3,
@@ -58,7 +58,7 @@
 			{{ forms.textField({
 			    first: true,
 			    label: "Queue Failed Limit"|t('watchtower'),
-			    instructions: "Set the number of failed jobs in the queue to get notified about."|t('watchtower'),
+			    instructions: "Set the threshold number for failed jobs in the queue to get sent a notification email."|t('watchtower'),
 			    name: 'failedQueueLimit',
 			    value: settings.failedQueueLimit,
 			    size: 3,
@@ -68,8 +68,8 @@
 			}) }}
 
 			{{ forms.lightswitchField({
-                label: 'Ignore Repeated'|t('watchtower'),
-			    instructions: "Ignore repeated jobs in the queue (e.g., Updating search indexes)"|t('watchtower'),
+                label: 'Ignore Repeated Jobs'|t('watchtower'),
+			    instructions: "Ignore repeated jobs in the queue (e.g., updating search indexes)"|t('watchtower'),
                 id: 'ignoreRepeated',
                 name: 'ignoreRepeated',
                 on: settings.ignoreRepeated,
@@ -79,8 +79,8 @@
 
 			{{ forms.textField({
 			    first: true,
-			    label: "Email Addresses"|t('watchtower'),
-			    instructions: "Comma seperated list of email recipients to get notification emails"|t('watchtower'),
+			    label: "Email Notifications"|t('watchtower'),
+			    instructions: "Comma seperated list of email recipients to get notified"|t('watchtower'),
 			    name: 'emails',
 			    value: settings.emails,
 			    required: true,
@@ -88,8 +88,8 @@
 			}) }}
 
 			{{ forms.autosuggestField({
-			    label: "Override Email Template"|t('watchtower'),
-			    instructions: "If you wish to trigger your own custom email template, You can select that template here.(Default email template in plugin's templates folder can be a good example to start with.)"|t('watchtower'),
+			    label: "Custom Email Template"|t('watchtower'),
+			    instructions: "Set a custom email template that Watchtower will use."|t('watchtower'),
 			    id: 'overrideEmailTemplate',
 			    name: 'overrideEmailTemplate',
 			    suggestions: craft.cp.getTemplateSuggestions(),
@@ -101,8 +101,8 @@
 			<hr>
 			{{ forms.textField({
 			    first: true,
-			    label: "Oh Dear ping URL"|t('watchtower'),
-			    instructions: "Set a ping url for <a href='https://ohdear.app/' target='_blank'>Oh Dear</a> scheduled task monitoring"|t('watchtower'),
+			    label: "Oh Dear Ping URL"|t('watchtower'),
+			    instructions: "Paste the Ping URL for Oh Dear <a href='https://ohdear.app/docs/features/cron-job-monitoring' target='_blank'>cron job monitoring</a> for added monitoring."|t('watchtower'),
 			    name: 'ohDearPingUrl',
 			    value: settings.ohDearPingUrl,
 			    required: false,

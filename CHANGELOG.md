@@ -1,5 +1,10 @@
 # Changelog
 
+## 4.0.1 - 2022-10-18
+- Updated field labels and instruction in plugin settings
+- Updated plugin icon
+- Updated installation instructions
+
 ## 4.0.0 - 2022-09-08
 - Upgraded plugin for craft cms v4.
 - Solved PHP 8.1 issues.
