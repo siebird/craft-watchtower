@@ -17,4 +17,4 @@ composer require siebird/craft-watchtower -w && php craft plugin/install watchto
 In the control panel, go to settings, find Watchtower and click to configure.
 
 ## Custom Email Template
-Review the default email template ('./src/templates/_emails/notification`) as a starting point. Enter the updated path in the custom email template field relative to Craft's `./templates` folder.
+Review the default email template (`./src/templates/_emails/notification`) as a starting point. Enter the updated path in the custom email template field relative to Craft's `./templates` folder.
