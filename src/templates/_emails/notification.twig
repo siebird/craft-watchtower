@@ -1,10 +1,9 @@
 {#
-This is Default Email template to send notification regarding QUEUE monitor data to user.
-We got few runtime variable here.
-	# Result Variables
+Default email template used to send a notification regarding queue manager status.
+We have a few runtime variables here:
+    # Result Variables
     totalPileups
     totalFailed
-
     # Settings variables (setting you have passed in control panel)
     settings.pluginName
     settings.pileUpQueueLimit
@@ -18,17 +17,17 @@ We got few runtime variable here.
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Watchtower Notification</title>
+    <title>Watchtower Notification</title>
 </head>
 <body>
-	<h1>Watchtower Alert!</h1>
-    <p><strong>{{ siteName }}</strong> seems to a bottleneck in the queue manager:</p>
-	<ul>
-		<li>Pending Jobs: <strong>{{ totalPileups }}</strong></li>
-		<li>Faild Jobs: <strong>{{ totalFailed }}</strong></li>
-	</ul>
+    <h1>Watchtower Alert!</h1>
+    <p><strong>{{ siteName }}</strong> seems to have a bottleneck in the queue manager:</p>
+    <ul>
+        <li>Pending Jobs: <strong>{{ totalPileups }}</strong></li>
+        <li>Failed Jobs: <strong>{{ totalFailed }}</strong></li>
+    </ul>
     <p>
-        <a href='{{ cpUrl("utilities/queue-manager") }}'>Click here to go to backend.</a>
+        <a href='{{ cpUrl("utilities/queue-manager") }}'>View Queue Manager</a>.
     </p>
     <p>
         Regards, <br>

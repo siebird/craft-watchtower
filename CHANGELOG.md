@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.2.3 - 2022-10-19
+- Updated field labels and instruction in plugin settings
+- Updated plugin icon
+- Updated installation instructions
+
 ## 1.0.2.1 - 2022-05-13
 - Email notification message typo mistake.
 

@@ -26,7 +26,7 @@ class WatchTower extends Plugin
 	public $hasCpSection 		= false;
 	public $hasCpSettings 		= true;
     public static $pluginHandle = 'watchtower';
-	public $schemaVersion 		= '1.0.2.1';
+	public $schemaVersion 		= '1.0.2.2';
 
 	public function init()
 	{
