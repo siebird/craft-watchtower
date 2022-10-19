@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.0.2.3 - 2022-10-19
+## 1.0.2.2 - 2022-10-19
 - Updated field labels and instruction in plugin settings
 - Updated plugin icon
 - Updated installation instructions
