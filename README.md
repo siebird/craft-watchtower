@@ -1,19 +1,19 @@
-# Queue watcher plugin for Craft CMS 3
+# Queue watcher plugin for Craft CMS 5
 
 Watchtower plugin monitors the Craft queue manager for bottlenecks and send notifications emails once those thresholds are met.
 
 For added monitoring, you can also ping [*Oh Dear*](https://ohdear.app/) for scheduled task monitoring.
 
 ### Requirements
- * PHP version 7.1 or higher
- * Craft CMS 3.3 or higher
+ * PHP version 8.0.2 or higher
+ * Craft CMS 5.0 or higher
 
 ---
 ## Installation
 To install this plugin, copy the command above to your terminal:
 
 ```bash
-composer require siebird/craft-watchtower
+composer require siebird/craft-watchtower -w && php craft plugin/install watchtower
 ```
 
 In the control panel, go to settings, find Watchtower plugin and click to configure settings.

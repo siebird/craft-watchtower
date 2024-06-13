@@ -16,7 +16,7 @@ class Settings extends Model
     public $overrideEmailTemplate = "";
     public $ohDearPingUrl = "";
 
-    public function getSettingsNavItems()
+    public function getSettingsNavItems(): array
     {
 
         $ret =  [
@@ -33,7 +33,7 @@ class Settings extends Model
 
     }
 
-    public function rules()
+    public function rules(): array
     {
         return [
             [['pluginName', 'pileUpQueueLimit', 'failedQueueLimit', 'emails'], 'required'],

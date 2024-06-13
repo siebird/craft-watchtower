@@ -9,10 +9,7 @@ use siebird\WatchTower\libraries\Email;
 
 trait PluginTrait
 {
-
-    public static $plugin;
-
-    private function _setPluginComponents()
+    private function _setPluginComponents(): void
     {
         $this->setComponents([
             'general' => General::class,
@@ -20,5 +17,4 @@ trait PluginTrait
             'email' => Email::class,
         ]);
     }
-
 }

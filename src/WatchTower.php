@@ -22,13 +22,12 @@ class WatchTower extends Plugin
 	use PluginTrait;
 
 	public static $app;
-	public static $plugin;
-	public $hasCpSection 		= false;
-	public $hasCpSettings 		= true;
-    public static $pluginHandle = 'watchtower';
-	public $schemaVersion 		= '1.0.2.2';
+	public static Plugin $plugin;
+	public bool $hasCpSection = false;
+	public bool $hasCpSettings = true;
+    public static string $pluginHandle = 'watchtower';
 
-	public function init()
+	public function init(): void
 	{
 	    parent::init();
 	    self::$plugin = $this;
@@ -44,7 +43,7 @@ class WatchTower extends Plugin
 	    $this->_registerEvents();
 	}
 
-	private function _registerCpRoutes()
+	private function _registerCpRoutes(): void
     {
         Event::on(UrlManager::class, UrlManager::EVENT_REGISTER_CP_URL_RULES, function(RegisterUrlRulesEvent $event) {
             $event->rules = array_merge($event->rules, [
@@ -57,12 +56,12 @@ class WatchTower extends Plugin
         });
     }
 
-	private function _registerEvents()
+	private function _registerEvents(): void
 	{
 
 	}
 
-    public function getCpNavItem()
+    public function getCpNavItem(): ?array
 	{
 
 	    $parent = parent::getCpNavItem();
@@ -78,30 +77,30 @@ class WatchTower extends Plugin
 
 	}
 
-    protected function cpNavIconPath()
+    protected function cpNavIconPath(): ?string
 	{
 	    $path = $this->getBasePath() . DIRECTORY_SEPARATOR . 'icon-mask.svg';
 	    return is_file($path) ? $path : null;
 	}
 
-    protected function createSettingsModel(): Settings
+    protected function createSettingsModel(): ?\craft\base\Model
 	{
 	    return new Settings();
 	}
 
-	public function getSettingsResponse()
+	public function getSettingsResponse(): mixed
     {
-        Craft::$app->getResponse()->redirect(UrlHelper::cpUrl('watchtower/settings'));
+        return Craft::$app->getResponse()->redirect(UrlHelper::cpUrl('watchtower/settings'));
     }
 
-	protected function afterInstall()
+	protected function afterInstall(): void
 	{
 
 	}
 
-	public function beforeUninstall(): bool
+	public function beforeUninstall(): void
 	{
-		return true;
+
 	}
 
 }
