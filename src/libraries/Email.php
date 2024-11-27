@@ -30,9 +30,6 @@ class Email
         $fromEmail = Craft::parseEnv($craftMailSettings->fromEmail);
         $fromName = Craft::parseEnv($craftMailSettings->fromName);
 
-        $site = Craft::$app->getSites()->getCurrentSite();
-        $siteName = Craft::t('site', $site->getName());
-        $subject = "Watchtower Queue Bottleneck at " . $siteName;
         $to = explode(',', $settings['emails']);
         foreach ($to as $key => &$value) {
             $value = trim($value);
@@ -42,8 +39,8 @@ class Email
            ->getMailer()
            ->compose()
            ->setTo($to)
-           ->setFrom(($fromEmail != "" ? ([$fromEmail => $fromEmail]): $fromEmail))
-           ->setSubject($subject);
+           ->setFrom(($fromEmail != "" ? ([$fromEmail => $fromName]): $fromEmail))
+           ->setSubject($settings['subject']);
 
         $mailer->setHtmlBody($html);
         return $mailer->send();
