@@ -39,7 +39,7 @@ class Email
            ->getMailer()
            ->compose()
            ->setTo($to)
-           ->setFrom(($fromEmail != "" ? ([$fromEmail => $fromName]): $fromEmail))
+           ->setFrom(($fromName != "" ? ([$fromEmail => $fromName]): $fromEmail))
            ->setSubject($settings['subject']);
 
         $mailer->setHtmlBody($html);
