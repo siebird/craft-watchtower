@@ -1,7 +1,7 @@
 {
 	"name": "siebird/craft-watchtower",
 	"description": "Monitors the Craft queue manager for bottlenecks and send notifications emails",
-	"version": "4.0.1",
+	"version": "4.0.2",
 	"type": "craft-plugin",
 	"keywords": ["craft", "cms", "craftcms", "craft-plugin", "siebird", "queue", "craft-queue", "queue-manager", "cron-job", "monitoring", "oh-dear", "ohdear"],
 	"license": "proprietary",

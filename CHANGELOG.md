@@ -1,5 +1,8 @@
 # Changelog
 
+## 4.0.2 - 2024-11-27
+- Changed Email Subject to be more alerting.
+
 ## 4.0.1 - 2022-10-18
 - Updated field labels and instruction in plugin settings
 - Updated plugin icon
