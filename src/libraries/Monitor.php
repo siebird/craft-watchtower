@@ -29,6 +29,19 @@ class Monitor
 			'totalFailed' => $this->_createFailedJobQuery()->count()
 		];
 
+		$site = Craft::$app->getSites()->getCurrentSite();
+        $siteName = Craft::t('site', $site->getName());
+
+		$settings['subject'] = "🚨 " .
+		($variables['totalPileups'] > 0 ? $variables['totalPileups'] . " Pending Jobs" : "") .
+		(
+			$variables['totalFailed'] > 0
+				?
+					($variables['totalPileups'] > 0 ? " and" : "") .
+					$variables['totalFailed'] . " Failed Jobs"
+				: ""
+		) . " in Queue Manager at " . $siteName;
+
 		if($variables['totalPileups'] >= $settings['pileUpQueueLimit'] || $variables['totalFailed'] >= $settings['failedQueueLimit'])
 		{
 			$status = "Count ";

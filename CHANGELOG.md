@@ -1,5 +1,8 @@
 # Changelog
 
+## 5.0.1 - 2024-11-27
+- Changed Email Subject to be more alerting.
+
 ## 5.0.0 - 2024-06-13
 - Upgraded plugin for craft cms v5.
 

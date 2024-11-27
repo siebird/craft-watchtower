@@ -5,7 +5,6 @@ use Craft;
 use yii\base\Event;
 use craft\base\Plugin;
 use craft\console\Application as ConsoleApplication;
-use craft\commerce\elements\Order;
 use craft\events\RegisterUrlRulesEvent;
 use craft\helpers\UrlHelper;
 use craft\web\UrlManager;
