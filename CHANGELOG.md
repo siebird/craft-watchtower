@@ -1,5 +1,8 @@
 # Changelog
 
+## 5.0.2 - 2024-11-27
+- Fixed Spacing issue in Subject Line of email where there was no spacing after warning string.
+
 ## 5.0.1 - 2024-11-27
 - Changed Email Subject to be more alerting.
 
