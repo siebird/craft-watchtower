@@ -38,7 +38,7 @@ class Monitor
 			$variables['totalFailed'] > 0
 				?
 					($variables['totalPileups'] > 0 ? " and" : "") .
-					$variables['totalFailed'] . " Failed Jobs"
+					" " . $variables['totalFailed'] . " Failed Jobs"
 				: ""
 		) . " in Queue Manager at " . $siteName;
 
